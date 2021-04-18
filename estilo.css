@@ -1,0 +1,341 @@
+
+:root{
+    /* --crema: #edf3f0;
+    --amarillo: #c2a07e;
+    --borde: #33484E; */
+    --crema: #dbdbdb;
+    --amarillo: #b49b82;
+    --borde: #1f1f1f;
+}
+*{box-sizing: border-box;}
+/*Configuraciones generales*/
+body {
+    margin:0;
+    background: var(--crema);
+    font-family: Helvetica;
+
+}
+#pagina {
+    display: flex;
+    flex-flow: column wrap;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--amarillo);
+    border-bottom: 2px solid var(--amarillo);
+    width: 90%;
+    margin-top: 0px; 
+    padding: 40px;
+    letter-spacing: 2px;
+    font-size: 2em;
+    margin: auto;
+}
+input {
+    cursor: pointer;
+}
+/*Parte del login y logout*/
+#loginSpace {
+    padding: 20px;
+    margin:0px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--borde);
+}
+#loginSpace label {
+    font-size: 0.7em; 
+    text-transform: uppercase;
+    padding: 0px 5px; 
+    color: var(--amarillo);
+}
+#loginSpace input{
+    padding: 3px 10px;
+    background-color: var(--crema);
+    color:#9e9e9e;
+    border: 1px solid var(--amarillo);
+}
+#loginSpace button {
+    cursor: pointer;
+    background-color: var(--amarillo);
+    color: var(--borde);
+    margin: 0px 5px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    transition: all .6s ease-in;
+    letter-spacing: 1px;
+    font-size: 0.7em;
+    border: 1px solid var(--borde);
+}
+#loginSpace button:hover{
+    background-color: var(--crema);
+    transition: all .6s ease-in;
+}
+/*Lista de elementos*/
+ul li::marker {
+    font-size: 0;
+}
+li img {
+    grid-area: imagen;
+    width:200px;
+    height:200px;
+    border-radius: 50%;
+}
+.lista {
+    width: 90%;
+    margin: auto;
+}
+.lista h2 {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--borde);
+    background-color: var(--amarillo);
+    padding: 10px;
+    letter-spacing: 2px;
+    font-size: 1.2em;
+}
+.lista ul {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-content: flex-start;
+
+}
+.lista li{
+    padding: 0.6em;
+    display: grid;
+    grid-template-areas: 
+    "imagen" 
+    "titulo"
+    "botonUp"
+    "botonDe";
+    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+    margin: 5px;
+    border:1px solid var(--borde);
+    background-color: var(--borde);
+}
+.lista button[name=Delete]{
+        grid-area: botonDe;
+        align-self: center;
+}
+.lista button[name=upload]{
+    grid-area: botonUp;
+    align-self: center;
+}
+
+.lista span{
+    grid-area: titulo;
+    cursor: pointer;
+    text-align: center;
+    color: var(--amarillo);
+    font-family:Tahoma;
+    font-size: 1em;
+    justify-self: center;
+    align-self: center;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding:0.5em;
+}
+.lista button, .elemento button {
+    cursor: pointer;
+    background-color: var(--amarillo);
+    color: var(--borde);
+    padding: 0.7em 0.2em;
+    text-transform: uppercase;
+    transition: all .6s ease-in;
+    font-size: 0.7em;
+    border: 1px solid var(--borde);
+    width: 100%;
+}
+.lista button:hover, .elemento button:hover{
+    background-color: var(--crema);
+    transition: all .6s ease-in;
+    color: var(--amarillo);
+}
+.cajaAniadir {
+    background-color: var(--borde);
+    margin-top:-20px;
+    padding:0.2em;
+    display: flex;
+    justify-content: flex-end;
+}
+.lista button[name=add] {
+    background-color: transparent;
+    color: var(--amarillo);
+    border: 0px solid #5c5c5c;
+    width:4%;
+    font-size: 0.6em;
+}
+.lista button[name=add]:hover{
+    color: var(--crema);
+}
+/*Página de cada elemento*/
+.elemento {
+    padding: 1.6em;
+    display: grid;
+    grid-template-areas: 
+    "img lnk"
+    "img contenido"
+    "referencias referencias"
+    "boton boton";
+    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+    margin: 2% auto;
+    background-color: var(--borde);
+}
+
+.elemento img{
+    grid-area: img;
+    width: 150px;
+    border-radius: 50%;
+}
+.elemento .datos {
+    grid-area: contenido;
+    display: flex;
+    flex-flow: column wrap;
+    align-self: flex-start;
+    justify-self: stretch;
+    padding: 1em;
+    text-align: justify;
+    text-transform: uppercase;
+    width: 100%;
+    max-height:400px;
+    font-size: 0.8em;
+    color: var(--amarillo);
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+.referencias {
+    grid-area: referencias;
+    display: flex;
+    font-size: 0.8em;
+    color: var(--amarillo);
+    font-weight: bold;
+    line-height: 1.2em;
+    width: 100%;
+    margin-top: 0.8em;
+    text-transform: uppercase;
+    text-align: center;
+}
+.ref0, .ref1 {
+    width:50%;
+}
+
+.elemento button {
+    grid-area: boton;
+}
+.elemento button::before {
+    content: " → Volver al ";
+}
+.referencias button {
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--crema);
+    padding: 0.4em 0.2em;
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 0.85em;
+}
+.referencias button::before {
+    content: "»  ";
+}
+
+.elemento div span b{
+    color: var(--crema);
+    font-weight: normal;
+}
+.elemento a{
+    grid-area: lnk;
+    font-weight: bold;
+    font-size: 0.8em;
+    text-decoration: none;
+    color: var(--crema);
+    transition: all .6s ease-in;
+    width: 100%;
+    text-align: center;
+    padding: 0.5em;
+    border-bottom: 1px solid var(--amarillo);
+    margin: 10px 0px;
+}
+.elemento a:hover{
+    color:var(--amarillo);
+    transition: all .6s ease-in;
+}
+/*Editar los datos*/
+.formulario{
+    background-color: var(--borde);
+    width: 90%;
+    margin: 0.5em auto;
+    display:flex;
+    flex-flow: column nowrap;
+}
+.formulario form {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    background-color: var(--borde);
+    width: 100%;
+    
+    padding: 1.5em;
+}
+.formulario form div{
+    display: flex;
+    flex-flow: row wrap;
+    width:100%;
+    margin: 1px 0;
+}
+.formulario label {
+    font-size: 0.8em; 
+    text-transform: uppercase;
+    padding: 0px 5px; 
+    color: var(--amarillo);
+    text-align:right;
+    width: 35%;
+    font-weight: bold;
+}
+.formulario input, .formulario textarea{
+    padding: 3px 10px;
+    background-color: var(--crema);
+    color:var(--borde);
+    border: 1px solid var(--amarillo);
+    width: 65%;
+    font-size: 0.8em;
+}
+.formulario button {
+    cursor: pointer;
+    background-color: var(--amarillo);
+    color: var(--borde);
+    margin: 0.5em auto 1.5em;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    transition: all .6s ease-in;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    border: 1px solid var(--borde);
+}
+.formulario button:hover{
+    background-color: var(--crema);
+    transition: all .6s ease-in;
+}
+.labelCheck{
+    width:50% !important;
+}
+.labelCheck label{
+    padding: 3px 10px;
+    width: 95%;
+    font-size: 0.8em;
+    color: var(--crema);
+    text-align: justify;
+    font-weight: normal;
+}
+.labelCheck input {
+    width: auto;
+}
